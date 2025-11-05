@@ -1,0 +1,45 @@
+✍️ Prompt per Replit: Ottimizzazione del Progetto Game/Documentazione
+Obiettivo: Ottimizzare e, se necessario, effettuare piccole correzioni o miglioramenti al codice del gioco o alla sua documentazione, tenendo conto dei limiti della versione gratuita di Replit.
+
+1. Contesto e Risorse
+"Sto lavorando a un progetto chiamato 'technical-writing-1942' che si basa sulla repository GitHub che ho appena allegato o clonato.
+
+Link Repository: https://github.com/AlexandruD18/technical-writing-1942/tree/main
+
+Il progetto contiene file relativi a un gioco (o la sua documentazione) e il codice principale. Ho una versione gratuita di Replit, quindi ho risorse limitate (specialmente per CPU/RAM e tempo di esecuzione) e non posso implementare cambiamenti strutturali complessi o aggiungere librerie pesanti.
+
+I file allegati (o presenti nel Repl) sono quelli della cartella main del repository."
+
+2. Richiesta Specifica (Scegli una delle opzioni più rilevanti per te)
+Opzione A: Ottimizzazione per Risorse Limitate (Consigliato per la versione Free)
+"Richiesta Principale:
+
+Analizza il codice principale (.py, .js, o altro) per identificare le sezioni che potrebbero essere inefficienti o che consumano molta CPU/memoria.
+
+Suggeriscimi o implementa piccole modifiche per l'ottimizzazione (es. cicli più efficienti, uso di strutture dati più adatte, riduzione di dipendenze non essenziali, ecc.) per assicurarmi che il progetto giri senza problemi sulla limitata infrastruttura free di Replit.
+
+Verifica se ci sono variabili o risorse non utilizzate che possono essere rimosse per ridurre l'ingombro.
+
+Obiettivo: Massima efficienza e stabilità con le risorse minime."
+
+Opzione B: Correzione di Bug e Miglioramenti Minori
+"Richiesta Principale:
+
+Analizza il codice (specialmente i file che gestiscono la logica di gioco/funzionalità).
+
+Identifica e correggi un eventuale bug che causa il crash dell'applicazione all'avvio o in un momento specifico (se riscontri un errore).
+
+Suggerisci un solo miglioramento minore e a basso impatto (es. un messaggio di benvenuto più chiaro, un commento di codice essenziale mancante o una refactorizzazione di una funzione breve) che non richieda un aumento delle risorse.
+
+Obiettivo: Stabilità e piccolo miglioramento della qualità."
+
+Opzione C: Analisi e Suggerimenti sulla Documentazione (Se il focus è la Scrittura Tecnica)
+"Richiesta Principale:
+
+Rivedi i file di documentazione (es. README.md, file nella cartella docs/) presenti nel progetto.
+
+Suggerisci 2-3 punti specifici per migliorare la chiarezza e la completezza della documentazione tecnica.
+
+Applica una piccola correzione di battitura o di formattazione al README.md se la trovi.
+
+Obiettivo: Migliorare la qualità della documentazione allegata."
