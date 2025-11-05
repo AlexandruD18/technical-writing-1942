@@ -1,0 +1,114 @@
+# 1942 - Rivisitazione Web Arcade 🚀
+
+[![GitHub Issues](https://img.shields.io/github/issues/AlexandruD18/technical-writing-1942)](https://github.com/AlexandruD18/technical-writing-1942/issues)
+[![Tag](https://img.shields.io/badge/version-v1.0.0-blue)](https://github.com/AlexandruD18/technical-writing-1942/releases)
+
+> **Stato del Progetto:** In Sviluppo (MVP definito)  
+> **Ultimo Aggiornamento:** 05 Novembre 2025 (Slot 6: QA e Revisione Critica)
+
+## 📌 Indice
+
+- [Panoramica](#-panoramica-del-progetto)
+- [Stack Tecnologico](#-stack-tecnologico)
+- [Struttura Repository](#-struttura-del-repository)
+- [Logiche di Gioco](#-logiche-di-gioco)
+- [Installazione](#-installazione-e-avvio)
+- [Documentazione](#-documentazione)
+- [Contribuzione](#-contribuire)
+- [Team](#-team-di-sviluppo)
+
+## 🎯 Panoramica del Progetto
+
+Rivisitazione moderna del classico sparatutto a scorrimento verticale **1942**. Il progetto mantiene lo stile arcade originale con una grafica pixel art retrò, ottimizzata per l'esperienza sia desktop che mobile.
+
+### Obiettivi Chiave
+
+- ✨ Esperienza di gioco fluida e fedele all'originale
+- 🌐 Compatibilità universale su browser
+- 🏆 Sistema di punteggio competitivo e progressivo
+
+## 🛠 Stack Tecnologico
+
+| Componente     | Tecnologia                    | Funzione          |
+| -------------- | ----------------------------- | ----------------- |
+| Frontend       | HTML5, CSS3, JavaScript (ES6) | Core development  |
+| Rendering      | Canvas API                    | Grafica 2D        |
+| Animazioni     | GSAP                          | Effetti fluidi    |
+| Audio          | Howler.js                     | Gestione suoni    |
+| Design Pattern | Entity-Component-System       | Architettura base |
+
+## 📂 Struttura del Repository
+
+```
+technical-writing-1942/
+├── docs/           # Documentazione
+├── assets/         # Risorse multimediali
+└── src/           # Codice sorgente
+    ├── main.js    # Entry point
+    ├── game.js    # Loop principale
+    ├── player.js  # Logica giocatore
+    ├── enemy.js   # Sistema nemici
+    ├── bullet.js  # Gestione proiettili
+    ├── powerup.js # Sistema power-up
+    ├── ui.js      # Interfaccia utente
+    └── collision.js # Sistema collisioni
+```
+
+## 🕹 Logiche di Gioco
+
+### Sistema di Controllo
+
+| Piattaforma | Movimento | Sparo  | Pausa  |
+| ----------- | --------- | ------ | ------ |
+| Desktop     | ← → ↑ ↓   | Spazio | Invio  |
+| Mobile      | Touch     | Tap    | Button |
+
+### Meccaniche Principali
+
+- **Game Loop**: 60 FPS con `requestAnimationFrame()`
+- **Nemici**:
+  - Caccia Base (1 HP, pattern verticale)
+  - Bombardiere (3 HP, pattern diagonale)
+- **Power-Up**:
+  - 🔥 Potenziamento Fuoco (15s)
+  - 🛡️ Scudo (10s)
+
+## 💻 Installazione e Avvio
+
+1. Clona il repository:
+
+```bash
+git clone https://github.com/technical-writing-1942/technical-writing-1942.git
+cd technical-writing-1942
+```
+
+2. Apri `index.html` nel browser (Chrome/Firefox consigliati)
+
+## 📋 Documentazione
+
+Nella cartella `/docs/`:
+
+- `PRD.md` - Requisiti di prodotto
+- `Analisi_Funzionale.md` - Specifiche funzionali
+- `Analisi_Tecnica.md` - Dettagli tecnici
+- `ai-prompt-guidelines.md` - Linee guida AI
+- `Verbale-Riunione.md` - Meeting notes
+- `Revisione.md` - QA report
+
+## 🤝 Contribuire
+
+- Seguire standard ES6
+- Verificare codice generato da AI
+- Utilizzare Git flow con commit giornalieri
+- Mantenere messaggi di commit descrittivi
+
+## 👥 Team di Sviluppo
+
+- **Project Manager**: Avogadro Emanuele
+- **Tech Lead**: Esposito Andrea
+- **UI/UX Designer**: Dimofte Alexandru Mihai
+- **QA Engineer**: Ennassiri Soufian
+
+---
+
+_Ultimo aggiornamento: 05/11/2025_

@@ -89,7 +89,9 @@ technical-writing-1942/
   └── collision.js # Collision detection
 ```
 
-## 🛠️ Installation e Setup (Developer Experience)
+# 🛠️ Installation (Developer Experience)
+
+### Setup default files
 
 Non è richiesta alcuna _build chain_ complessa.
 
@@ -102,6 +104,25 @@ Non è richiesta alcuna _build chain_ complessa.
     _Aprire semplicemente il file `index.html`_ in un browser moderno (Chrome, Firefox e Safari sono i target principali).
 
 > **Nota:** Non è richiesto alcun web server locale a meno che non si verifichino problemi di CORS con le risorse locali.
+
+### Setup game files
+
+Per eseguire il gioco in ambiente locale, segui le istruzioni riportate di seguito.
+
+1.  **Apri il terminale ed entra nella directory del progetto:**
+    ```bash
+    cd game
+    ```
+2.  **Installa le dipendenze richieste dal progetto:**
+    ```bash
+    npm install
+    ```
+3.  **Avvia l’applicazione in modalità sviluppo (localhost):**
+    ```bash
+    npm run dev
+    ```
+
+> **Nota:** La porta utilizzata per l’esecuzione in ambiente locale risulta preconfigurata nel progetto.
 
 ---
 
