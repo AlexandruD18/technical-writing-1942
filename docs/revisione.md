@@ -244,4 +244,4 @@ graph TD
 ---
 
 _Documento v2.0 - Aggiornato il 05/11/2025_
-_Approvato da: QA Lead, Technical Lead, Product Owner_
+_Approvato da: CEO - Luca Sacchi Ricciardi_

@@ -306,4 +306,4 @@ graph TD
 ---
 
 _Documento v2.0 - Aggiornato il 05/11/2025_
-_Approvato da: AI Lead, Technical Lead, Security Officer_
+_Approvato da: CEO - Luca Sacchi Ricciardi_

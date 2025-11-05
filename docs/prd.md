@@ -150,4 +150,4 @@ Il progetto "1942" rappresenta un'opportunità significativa di mercato, combina
 ---
 
 _Documento v2.0 - Aggiornato il 05/11/2025_
-_Approvato da: Team Lead, Product Owner, Technical Lead_
+_Approvato da: CEO - Luca Sacchi Ricciardi_
