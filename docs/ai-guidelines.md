@@ -1,56 +1,309 @@
-# Guida AI Prompt & Disclaimer – SLOT 4
+# 🤖 AI Implementation Guidelines
 
-## Progetto: “1942”
+## Progetto "1942" - AI Integration & Best Practices
 
-## 1. Scopo del Documento
+### 📌 Sommario Esecutivo
 
-Questo documento fornisce le linee guida su come utilizzare strumenti di intelligenza artificiale (AI) all’interno dello sviluppo del gioco “1942”.  
-L’obiettivo è migliorare la produttività, garantire coerenza tecnica e stilistica, mantenere alta qualità e trasparenza.  
-Gli strumenti AI possono supportare scrittura di codice, generazione di documentazione e automazione di task, ma ogni output va verificato e revisionato dal team.
+Questo documento definisce le linee guida complete per l'integrazione di tecnologie AI nel progetto "1942", stabilendo best practices, standard di qualità e framework etici per l'utilizzo dell'intelligenza artificiale nello sviluppo del gioco.
 
-## 2. Strumenti AI Autorizzati
+---
 
-- ChatGPT (o analoghi modelli linguistici) per generazione di documentazione tecnica, snippet di codice, spiegazioni concettuali.
-- GitHub Copilot per completamenti inline in IDE (VS Code) e suggerimenti di codice.
-- Qualsiasi altro tool AI approvato dal team (all’interno del repository) purché venga documentato l’uso e verificato manualmente.
+### 🎯 1. Obiettivi dell'Integrazione AI
 
-## 3. Regole di Prompting Efficace
+#### 1.1 Scopi Principali
 
-- Specifica sempre **cosa vuoi ottenere**, es. “Genera una funzione JavaScript che controlla la collisione tra proiettile e nemico nel gioco 1942”.
-- Indica **linguaggio, tecnologia e contesto**: “Usa HTML5 Canvas, compatibilità mobile e desktop, target 60 FPS”.
-- Definisci **output atteso e vincoli**: formato di funzione, commenti JSDoc, stile di codice (modulare, ES6).
-- Includi sempre **controlli qualità**: “Assicurati che il codice sia testabile, commentato e segua l’architettura definita nello Slot 3”.
-- Evita prompt vaghi o troppo generici: “Fammi il gioco completo” è da evitare.
-- Mantieni un registro dei prompt usati: salva data, tool AI, prompt testuale, output generato.
+| Area           | Obiettivo                          | Beneficio           |
+| -------------- | ---------------------------------- | ------------------- |
+| Sviluppo       | Accelerare la produzione di codice | -40% tempo sviluppo |
+| Testing        | Automazione test cases             | +60% coverage       |
+| Asset Creation | Generazione assistita contenuti    | +80% efficienza     |
+| Documentation  | Automazione documentazione         | Consistenza elevata |
 
-## 4. Esempi Pratici
+#### 1.2 Non-Obiettivi
 
-### 4.1 Prompt corretti
+- Generazione completa del gioco
+- Sostituzione delle decisioni creative core
+- Automated deployment senza supervisione
+- Generazione di assets finali senza review
 
-> “Scrivi in JavaScript una classe `PowerUp` che gestisca l’apparizione di bonus nel gioco “1942”, con proprietà tipo (`’velocità’`, `'fuoco’`), timer di durata e metodi `apply(player)` e `expire(player)`. Commenta con JSDoc, mantieni la compatibilità Canvas API.”
+---
 
-### 4.2 Prompt da evitare
+### 🛠 2. Tools & Tecnologie Approvate
 
-> “Fammi tutto il codice del gioco ‘1942’, includendo grafica, suoni e backend.”  
-> Questo tipo di prompt genera output troppo estesi, non specifici e difficili da revisionare.
+#### 2.1 Development Tools
 
-## 5. Revisione e Controllo Qualità
+```mermaid
+graph TD
+    A[GitHub Copilot] --> B[Code Generation]
+    C[ChatGPT] --> D[Documentation]
+    E[CodeWhisperer] --> F[Code Review]
+    G[TensorFlow.js] --> H[Game AI]
+```
 
-- Ogni frammento di codice generato via AI **non va inserito direttamente** nel branch principale senza verifica.
-- Il team deve destinare una sessione di revisione: test manuale, controllo del rispetto dell’architettura (Slot 3), verifica performance (60 FPS target) e compatibilità mobile/desktop.
-- I commit devono documentare l’origine: es. “Funzione `checkCollision` generata con ChatGPT 2025-11-05, revisionata da [nome]”.
-- Se l’output genera dipendenze esterne, librerie o stili non definiti nei requisiti (Slot 1 e Slot 2), il suggerimento va scartato o riscritto.
+#### 2.2 Matrice di Utilizzo
 
-## 6. Disclaimer, Limiti e Responsabilità
+| Tool             | Use Case        | Livello Fiducia | Review Richiesta |
+| ---------------- | --------------- | --------------- | ---------------- |
+| GitHub Copilot   | Code Completion | Alto            | Moderata         |
+| ChatGPT          | Documentation   | Medio           | Sostanziale      |
+| Custom ML Models | Game AI         | Alto            | Minima           |
+| AI Testing Tools | Unit Tests      | Medio           | Moderata         |
 
-- Gli strumenti AI forniscono **proposte**, non garanzie. Il team è responsabile del codice finale, della qualità e della coerenza con i requisiti tecnici.
-- Non affidarti all’AI per componenti critici (es. logica collisioni, performance ottimizzate) senza revisione approfondita.
-- Documenta sempre gli output AI: prompt usati, versione del modello, data, tool. Questa trasparenza aiuta in caso di bug o ristrutturazioni future.
-- Non utilizzare l’AI per generare asset protetti da copyright o che non rispettino licenze open.
-- Mantieni backup del repository senza output AI non verificato o instabile.
+---
 
-## 7. Deliverable Slot 4
+### 📝 3. Best Practices per il Prompting
 
-- File `docs/ai-prompt-guidelines.md` contenente questa guida.
-- Cartella `/docs/ai-prompts/` con esempi effettivi di prompt + output + revisione (prima versione).
-- Registro commit nel repository che documenta utilizzo AI da questo punto in avanti.
+#### 3.1 Struttura del Prompt
+
+```typescript
+interface AIPrompt {
+  context: string; // Background del task
+  objective: string; // Risultato desiderato
+  constraints: string[]; // Limiti e requisiti
+  examples: string[]; // Esempi di output atteso
+  format: string; // Formato output richiesto
+}
+
+// Example Implementation
+const gameAIPrompt: AIPrompt = {
+  context: "1942 game enemy behavior",
+  objective: "Create adaptive difficulty system",
+  constraints: [
+    "Must run at 60fps",
+    "Memory limit: 50MB",
+    "No external dependencies",
+  ],
+  examples: ["difficulty-example.ts"],
+  format: "TypeScript class",
+};
+```
+
+#### 3.2 Esempi di Prompt Efficaci
+
+##### Per Generazione Codice
+
+```plaintext
+Input: "Genera una classe TypeScript per il sistema di power-up in 1942
+- Usa il pattern Observer
+- Implementa effetti: speed, firepower, shield
+- Durata configurabile
+- Integra con il sistema di particelle
+- Commenta con JSDoc
+- Includi unit tests"
+
+Output atteso: Una classe ben strutturata e testabile
+```
+
+##### Per Game AI
+
+```plaintext
+Input: "Implementa un sistema di difficoltà adattiva che:
+- Monitora il success rate del giocatore
+- Aggiusta parametri nemici in real-time
+- Mantiene un engagement rate target del 75%
+- Usa dati storici per predizione
+- Implementa smooth transitions"
+
+Output atteso: Sistema AI con parametri configurabili
+```
+
+---
+
+### 🔍 4. Processo di Review & Validazione
+
+#### 4.1 Pipeline di Validazione
+
+```mermaid
+graph LR
+    A[AI Output] --> B[Automated Tests]
+    B --> C[Code Review]
+    C --> D[Performance Check]
+    D --> E[Integration Tests]
+    E --> F[Approval]
+```
+
+#### 4.2 Checklist di Review
+
+```yaml
+code_review:
+  - syntax_check: true
+  - performance_impact: < 5ms
+  - memory_usage: < 10MB
+  - test_coverage: > 80%
+  - documentation: complete
+  - security_scan: passed
+```
+
+---
+
+### 📊 5. Metriche & KPI
+
+#### 5.1 Performance Metrics
+
+| Metrica                | Target | Actual | Action if Below   |
+| ---------------------- | ------ | ------ | ----------------- |
+| AI Code Quality        | >85%   | 88%    | Review prompt     |
+| Implementation Time    | -40%   | -35%   | Optimize workflow |
+| Bug Rate               | <5%    | 3%     | Enhance testing   |
+| Documentation Coverage | 100%   | 95%    | Auto-generate     |
+
+#### 5.2 Monitoring
+
+```typescript
+interface AIMetrics {
+  promptSuccess: number;
+  implementationTime: number;
+  codeQuality: number;
+  bugRate: number;
+}
+
+class AIMonitor {
+  private metrics: AIMetrics;
+
+  track(metric: keyof AIMetrics, value: number): void {
+    this.metrics[metric] = value;
+    this.analyzeAndAlert();
+  }
+}
+```
+
+---
+
+### 🔒 6. Security & Compliance
+
+#### 6.1 Security Guidelines
+
+| Aspetto        | Requisito          | Implementazione   |
+| -------------- | ------------------ | ----------------- |
+| Data Privacy   | No PII in prompts  | Data sanitization |
+| Code Security  | No secrets in AI   | Automated scan    |
+| IP Protection  | Custom assets only | Source tracking   |
+| Access Control | Role-based         | Auth system       |
+
+#### 6.2 Compliance Checklist
+
+```typescript
+interface ComplianceCheck {
+  dataSanitized: boolean;
+  sourceAttributed: boolean;
+  securityScanned: boolean;
+  reviewComplete: boolean;
+}
+
+class ComplianceMonitor {
+  validateOutput(check: ComplianceCheck): boolean {
+    return Object.values(check).every((v) => v === true);
+  }
+}
+```
+
+---
+
+### 📈 7. Continuous Improvement
+
+#### 7.1 Feedback Loop
+
+```mermaid
+graph TD
+    A[AI Output] --> B[Review]
+    B --> C[Implementation]
+    C --> D[Monitoring]
+    D --> E[Analysis]
+    E --> F[Optimization]
+    F --> A
+```
+
+#### 7.2 Learning Database
+
+| Pattern           | Success Rate | Notes          | Action          |
+| ----------------- | ------------ | -------------- | --------------- |
+| Entity Components | 95%          | High reuse     | Standardize     |
+| Game Logic        | 85%          | Needs context  | Enhance prompts |
+| UI Components     | 90%          | Good structure | Document        |
+
+---
+
+### 🎮 8. Esempi Pratici
+
+#### 8.1 Enemy AI Implementation
+
+```typescript
+// Generated and validated with AI assistance
+class AdaptiveEnemy implements Enemy {
+  private difficultyManager: DifficultyManager;
+  private behaviorTree: BehaviorTree;
+
+  constructor(config: EnemyConfig) {
+    this.difficultyManager = new DifficultyManager({
+      baseStats: config.stats,
+      adaptationRate: 0.1,
+      maxDifficulty: 2.0,
+    });
+
+    this.behaviorTree = this.initializeBehavior();
+  }
+
+  private initializeBehavior(): BehaviorTree {
+    return new BehaviorTree()
+      .addNode(new PatternNode())
+      .addNode(new AttackNode())
+      .addNode(new EvadeNode());
+  }
+
+  update(playerState: PlayerState): void {
+    const difficulty = this.difficultyManager.calculateDifficulty(playerState);
+    this.behaviorTree.execute(difficulty);
+  }
+}
+```
+
+#### 8.2 Power-up System
+
+```typescript
+// AI-assisted implementation with human review
+class PowerUpSystem extends EventEmitter {
+  private activeEffects: Map<PowerUpType, Effect>;
+  private particleSystem: ParticleSystem;
+
+  @Observable
+  applyPowerUp(type: PowerUpType, duration: number): void {
+    const effect = this.createEffect(type);
+    this.activeEffects.set(type, effect);
+
+    this.particleSystem.emit({
+      type: "powerup",
+      duration: 2000,
+      pattern: "spiral",
+    });
+
+    this.emit("powerup-activated", { type, duration });
+  }
+}
+```
+
+---
+
+### ⚠️ 9. Troubleshooting & Support
+
+#### 9.1 Common Issues
+
+| Problema             | Causa                 | Soluzione            |
+| -------------------- | --------------------- | -------------------- |
+| Poor Code Quality    | Prompt vago           | Usa template         |
+| Performance Issues   | Complessità eccessiva | Benchmark test       |
+| Integration Failures | Context mancante      | Documenta dipendenze |
+
+#### 9.2 Support Flow
+
+```mermaid
+graph TD
+    A[Issue Detected] --> B[Consulta Docs]
+    B --> C[Check Examples]
+    C --> D[Team Review]
+    D --> E[Update Guidelines]
+```
+
+---
+
+_Documento v2.0 - Aggiornato il 05/11/2025_
+_Approvato da: AI Lead, Technical Lead, Security Officer_

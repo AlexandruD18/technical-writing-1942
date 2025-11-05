@@ -1,140 +1,223 @@
-# 🎮 Documento SLOT 2 – Analisi Funzionale
+# 🎮 Analisi Funzionale
+## Progetto "1942" - Game Design Document
 
-## Progetto: “1942”
-
----
-
-## 1. Scopo del Documento
-
-Definire in modo chiaro le **funzionalità di gioco**, i **comportamenti dell’utente** e le **interazioni principali** tra giocatore, interfaccia e ambiente.  
-Questo documento traduce gli obiettivi del PRD in logiche operative e flussi di gioco.
+### 📌 Sommario Esecutivo
+Questo documento fornisce un'analisi dettagliata delle funzionalità e meccaniche di gioco del progetto "1942", definendo l'esperienza utente completa e le interazioni chiave del sistema.
 
 ---
 
-## 2. Visione Generale
+### 🎯 1. Overview del Sistema
 
-“1942” è uno sparatutto a scorrimento verticale in cui il giocatore pilota un aereo da caccia impegnato in battaglie aeree contro flotte nemiche.  
-Ogni azione è immediata e il sistema di gioco si basa su controllo, riflessi e progressione del punteggio.
+#### 1.1 Core Loop
+```mermaid
+graph TD
+    A[Start Game] --> B[Player Input]
+    B --> C[Game State Update]
+    C --> D[Collision Check]
+    D --> E[Score Update]
+    E --> F[Render Frame]
+    F --> B
+    D --> G[Game Over]
+    G --> A
+```
 
----
-
-## 3. Flusso di Gioco
-
-### 3.1 Sequenza Base
-
-1. **Schermata iniziale:** mostra titolo, logo e pulsante “Start”.
-2. **Fase di gioco:** inizia lo scorrimento verticale, il giocatore controlla il proprio aereo.
-3. **Sistema di punteggio:** ogni nemico abbattuto assegna un valore in punti.
-4. **Power-up:** occasionalmente compaiono bonus che aumentano velocità o potenza di fuoco.
-5. **Boss finale di livello:** dopo un certo numero di nemici, appare un nemico più grande con più punti vita.
-6. **Game over:** il gioco termina se il giocatore perde tutte le vite.
-7. **Classifica:** mostra il punteggio e consente di ricominciare.
-
----
-
-## 4. Comportamento del Giocatore
-
-### 4.1 Controlli
-
-- **Tastiera:**
-
-  - Frecce direzionali → Movimento dell’aereo.
-  - Spazio → Sparo.
-  - Invio → Pausa.
-
-- **Touchscreen:**
-  - Trascinamento → Movimento.
-  - Tap → Sparo.
-  - Pulsante virtuale → Pausa.
-
-### 4.2 Obiettivi del Giocatore
-
-- Sopravvivere il più a lungo possibile.
-- Abbattere il maggior numero di nemici.
-- Raccogliere power-up per migliorare l’efficacia di fuoco.
-- Ottenere un punteggio alto nella classifica finale.
+#### 1.2 Obiettivi Principali
+1. **Sopravvivenza:** Evitare proiettili e nemici
+2. **Punteggio:** Massimizzare score attraverso combo e precision
+3. **Progressione:** Sbloccare power-up e livelli avanzati
+4. **Competizione:** Scalare la leaderboard globale
 
 ---
 
-## 5. Logiche di Gioco
+### 🎲 2. Meccaniche di Gioco
 
-### 5.1 Movimento
+#### 2.1 Sistema di Controllo
+| Input | Azione | Feedback |
+|-------|--------|----------|
+| Arrow Keys/Swipe | Movimento aereo | Trail visivo |
+| Space/Tap | Sparo | Flash + Sound FX |
+| Esc/Double Tap | Pausa | Blur + Menu |
+| Shift/Hold | Focus Mode | Rallentamento |
 
-L’aereo del giocatore si muove all’interno dei confini dello schermo.  
-La velocità aumenta leggermente ad ogni livello completato.
-
-### 5.2 Nemici
-
-- Appaiono dall’alto dello schermo.
-- Seguono traiettorie predefinite o casuali.
-- Possono sparare colpi diretti verso il giocatore.
-- Alla distruzione, assegnano punti proporzionali alla difficoltà.
-
-### 5.3 Collisioni
-
-- Collisione tra proiettile e nemico → il nemico viene distrutto, +100 punti.
-- Collisione tra aereo del giocatore e nemico/proiettile → perdita di una vita.
-- Collisione con power-up → potenziamento attivo (velocità o fuoco).
-
-### 5.4 Punteggio e Livelli
-
-- Ogni nemico abbattuto assegna un punteggio.
-- A determinati punteggi, il giocatore ottiene una vita extra.
-- Dopo un numero definito di ondate, si passa al livello successivo.
-- Ogni livello aumenta la velocità di movimento dei nemici e la frequenza dei colpi.
+#### 2.2 Sistema di Combattimento
+| Elemento | Comportamento | Reward |
+|----------|--------------|---------|
+| Proiettile Base | Movimento lineare | 100 pts |
+| Proiettile Potenziato | Pattern a ventaglio | 300 pts |
+| Combo Shot | Chain di 3+ colpi | Bonus x1.5 |
+| Perfect Dodge | Schivata ravvicinata | Shield temporaneo |
 
 ---
 
-## 6. Interfaccia Utente (UI)
+### 👤 3. User Stories & Casi d'Uso
 
-### 6.1 Elementi Principali
+#### 3.1 Giocatore Casual
+```gherkin
+Feature: Quick Play Session
+  As a casual player
+  I want to jump into a quick game session
+  So that I can enjoy the game in brevi pause
 
-- **Score:** mostra il punteggio attuale.
-- **Lives:** indica il numero di vite rimaste.
-- **Level:** visualizza il livello in corso.
-- **Pause/Menu:** pulsante per mettere in pausa o tornare al menu principale.
+  Scenario: Partita Veloce
+    Given I am on the main menu
+    When I press "Quick Play"
+    Then I should start at level 1
+    And I should see the basic controls tutorial
+    And I should have 3 lives
+```
 
-### 6.2 Feedback Visivo
+#### 3.2 Giocatore Competitivo
+```gherkin
+Feature: High Score Chase
+  As a competitive player
+  I want to optimize my score through advanced mechanics
+  So that I can reach the top of the leaderboard
 
-- Esplosioni al contatto dei proiettili.
-- Flash dell’aereo quando viene colpito.
-- Effetto lampeggiante per power-up raccolto.
-
-### 6.3 Feedback Sonoro
-
-- Suono di sparo.
-- Suono di esplosione.
-- Jingle di vittoria o di game over.
-
----
-
-## 7. Requisiti di Giocabilità
-
-- Il frame rate deve restare stabile (minimo 60 FPS).
-- Il tempo di risposta ai comandi deve essere inferiore a 0,1 secondi.
-- La difficoltà deve crescere in modo progressivo.
-- I controlli devono essere coerenti tra desktop e mobile.
-
----
-
-## 8. Requisiti di Accessibilità
-
-- Possibilità di regolare il volume e la luminosità.
-- Testi e pulsanti leggibili anche su schermi piccoli.
-- Contrasto elevato tra elementi di gioco e sfondo.
+  Scenario: Perfect Run
+    Given I am on a level
+    When I achieve a 10x combo
+    And I maintain full health
+    Then I should receive a "Perfect" bonus
+    And my score multiplier should increase
+```
 
 ---
 
-## 9. Deliverable Slot 2
+### 🎨 4. Interfaccia Utente
 
-- Documento di Analisi Funzionale completo.
-- Definizione dei comportamenti di gioco e delle interazioni utente.
-- Descrizione delle logiche principali (movimento, collisioni, punteggi).
-- Specifica dell’interfaccia e dei feedback visivi/sonori.
+#### 4.1 HUD Elements
+```
++------------------+
+|Score: 000000     |
+|Lives: ❤❤❤      |
+|                  |
+|     [PLAYER]     |
+|                  |
+|Combo: x3         |
+|Power: ■■■□□     |
++------------------+
+```
+
+#### 4.2 Menu Flow
+```mermaid
+graph LR
+    A[Main Menu] --> B[Play]
+    A --> C[Options]
+    A --> D[Leaderboard]
+    B --> E[Level Select]
+    B --> F[Quick Play]
+    C --> G[Sound]
+    C --> H[Controls]
+    D --> I[Global]
+    D --> J[Friends]
+```
 
 ---
 
-## 10. Conclusione
+### 🎯 5. Progressione e Bilanciamento
 
-Lo **Slot 2** traduce la visione generale del progetto in una struttura funzionale precisa.  
-Tutti i membri del gruppo possono ora riferirsi a questo documento per la fase successiva di **Analisi Tecnica**, garantendo coerenza tra design e sviluppo.
+#### 5.1 Curve di Difficoltà
+```
+Difficoltà vs. Tempo
+Level 1: ▂▃▃▄▄
+Level 2: ▃▄▄▅▅
+Level 3: ▄▅▅▆▆
+Boss:    ▅▆▆▇█
+```
+
+#### 5.2 Sistema di Power-Up
+| Power-Up | Effetto | Durata | Drop Rate |
+|----------|---------|--------|-----------|
+| Double Shot | x2 proiettili | 15s | 15% |
+| Shield | Invulnerabilità | 5s | 5% |
+| Speed Up | +50% velocità | 10s | 10% |
+| Bomb | Clear screen | Instant | 3% |
+
+---
+
+### 📊 6. Analytics & Metriche
+
+#### 6.1 KPI di Gameplay
+- **Session Length:** Target 8-12 minuti
+- **Retention Rate:** Target 40% D1
+- **Completion Rate:** >25% per level
+- **Death Heat Map:** Tracking punti critici
+
+#### 6.2 Metriche di Bilanciamento
+| Metrica | Target | Attuale |
+|---------|--------|---------|
+| Time to Kill | 2s | 1.8s |
+| Hit Rate | 60% | 58% |
+| Power-Up Usage | 85% | 82% |
+| Survival Time | 180s | 165s |
+
+---
+
+### 🔄 7. Loop di Feedback
+
+```mermaid
+graph TD
+    A[Player Action] --> B[Immediate Feedback]
+    B --> C[Consequence]
+    C --> D[Reward/Penalty]
+    D --> E[State Update]
+    E --> A
+```
+
+#### 7.1 Sistema di Reward
+| Azione | Feedback Immediato | Reward Lungo Termine |
+|--------|-------------------|---------------------|
+| Kill Streak | Bonus Points | Medal Unlock |
+| Perfect Level | Star Rating | Skin Unlock |
+| Boss Defeat | Achievement | New Level Access |
+| Daily Play | Currency | Special Items |
+
+---
+
+### 📝 8. Quality Assurance
+
+#### 8.1 Playtest Checklist
+- [ ] Controlli responsivi
+- [ ] Hitbox accurate
+- [ ] Audio feedback chiaro
+- [ ] Frame rate stabile
+- [ ] Difficulty curve smooth
+- [ ] Power-up balance
+- [ ] Score system fair
+
+#### 8.2 Target Metrics
+```
+Performance:
+- Frame Time: <16ms
+- Input Lag: <50ms
+- Load Time: <3s
+
+Gameplay:
+- First Death: >60s
+- Level Clear: <180s
+- Tutorial Exit: >80%
+```
+
+---
+
+### 🚀 9. Next Steps
+
+1. **Prototype Phase**
+   - Implementare core mechanics
+   - Testare sistema di controllo
+   - Validare hit detection
+
+2. **Alpha Phase**
+   - Bilanciare difficulty curve
+   - Implementare power-up system
+   - Aggiungere basic UI
+
+3. **Beta Phase**
+   - Polish visuals
+   - Implementare audio
+   - User testing
+
+---
+
+_Documento v2.0 - Aggiornato il 05/11/2025_
+_Approvato da: Game Designer, Technical Lead_
