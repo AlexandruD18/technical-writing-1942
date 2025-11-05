@@ -109,15 +109,12 @@ Non è richiesta alcuna _build chain_ complessa.
 
 Per eseguire il gioco in ambiente locale, segui le istruzioni riportate di seguito.
 
-1.  **Apri il terminale ed entra nella directory del progetto:**
+1.  **Apri il terminale, entra nella directory del progetto e installa le dipendenze richieste:**
     ```bash
     cd game
-    ```
-2.  **Installa le dipendenze richieste dal progetto:**
-    ```bash
     npm install
     ```
-3.  **Avvia l’applicazione in modalità sviluppo (localhost):**
+2.  **Avvia l’applicazione in modalità sviluppo (localhost):**
     ```bash
     npm run dev
     ```
