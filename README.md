@@ -101,25 +101,25 @@ Non è richiesta alcuna _build chain_ complessa.
     cd technical-writing-1942
     ```
 2.  **Esecuzione:**
-    _Aprire semplicemente il file `index.html`_ in un browser moderno (Chrome, Firefox e Safari sono i target principali).
+    Aprire semplicemente il file _`index.html`_ in un browser moderno (Chrome, Firefox e Safari sono i target principali).
 
 > **Nota:** Non è richiesto alcun web server locale a meno che non si verifichino problemi di CORS con le risorse locali.
 
 ### Setup game files
 
-Per eseguire il gioco in ambiente locale, segui le istruzioni riportate di seguito.
+Per eseguire il gioco in _ambiente locale_, segui le istruzioni riportate di seguito.
 
 1.  **Apri il terminale, entra nella directory del progetto e installa le dipendenze richieste:**
     ```bash
     cd game
     npm install
     ```
-2.  **Avvia l’applicazione in modalità sviluppo (localhost):**
+2.  **Avvia l’applicazione in modalità sviluppo (_localhost_):**
     ```bash
     npm run dev
     ```
 
-> **Nota:** La porta utilizzata per l’esecuzione in ambiente locale risulta preconfigurata nel progetto.
+> **Nota:** La porta utilizzata per l’esecuzione in _ambiente locale_ risulta preconfigurata nel progetto.
 
 ---
 
