@@ -44,14 +44,14 @@ technical-writing-1942/
 ├── docs/           # PRD, Analisi Funzionali/Tecniche, Meeting Notes.
 ├── assets/         # Tutte le risorse statiche (immagini, sprite, audio).
 └── src/            # Codice sorgente principale.
-    ├── main.js     # Entry point e inizializzazione del motore.
-    ├── game.js     # Il cuore: il Game Loop, la logica di Stato e la Pacing.
-    ├── player.js   # Componente: Logica, Stato e input del velivolo principale.
-    ├── enemy.js    # Componente: Pattern di volo, IA e gestione del pool dei nemici.
-    ├── bullet.js   # Componente: Pool e aggiornamento delle entità Proiettili.
-    ├── powerup.js  # Componente: Logica di Spawn, Timing e Applicazione Power-Up.
-    ├── ui.js       # Componente: Rendering dell'HUD (Punti, Vite, Icone).
-    └── collision.js# Sistema: Algoritmo di rilevamento delle collisioni.
+  ├── main.js      # Entry point
+  ├── game.js      # Game loop e state
+  ├── player.js    # Logica player
+  ├── enemy.js     # IA e pattern nemici
+  ├── bullet.js    # Sistema proiettili
+  ├── powerup.js   # Power-up logic
+  ├── ui.js        # HUD rendering
+  └── collision.js # Collision detection
 ```
 
 ## 🛠️ Installation e Setup (Developer Experience)
