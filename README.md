@@ -79,14 +79,14 @@ technical-writing-1942/
 ├── docs/           # PRD, Analisi Funzionali/Tecniche, Meeting Notes.
 ├── assets/         # Tutte le risorse statiche (immagini, sprite, audio).
 └── src/            # Codice sorgente principale.
-  ├── main.js      # Entry point
-  ├── game.js      # Game loop e state
-  ├── player.js    # Logica player
-  ├── enemy.js     # IA e pattern nemici
-  ├── bullet.js    # Sistema proiettili
-  ├── powerup.js   # Power-up logic
-  ├── ui.js        # HUD rendering
-  └── collision.js # Collision detection
+  ├── main.js       # Entry point
+  ├── game.js       # Game loop e state
+  ├── player.js     # Logica player
+  ├── enemy.js      # IA e pattern nemici
+  ├── bullet.js     # Sistema proiettili
+  ├── powerup.js    # Power-up logic
+  ├── ui.js         # HUD rendering
+  └── collision.js  # Collision detection
 ```
 
 # 🛠️ Installation (Developer Experience)
