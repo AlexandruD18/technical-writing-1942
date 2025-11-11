@@ -182,7 +182,7 @@ La documentazione è fondamentale per mantenere il progetto allineato. Tutti i d
 - **`Analisi_Funzionale.md`** - Spec: Comportamento di ciascuna funzione di gioco.
 - **`Analisi_Tecnica.md`** - Spec: Dettagli su architettura, ECS e ottimizzazioni.
 - **`ai-prompt-guidelines.md`** - Linee guida per l'integrazione di codice generato da AI.
-- **`Verbale-Riunione.md`** - Meeting notes e decisioni chiave del team.
+- **`Verbale-Riunione.md`** - Meeting notes e decisioni chiave del team .
 - **`Revisione.md`** - QA Report e Bug Tracking formale.
 
 ---
