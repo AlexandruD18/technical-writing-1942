@@ -19,17 +19,6 @@ const INPUT_LATENCY = 16; // ms max
 
 ---
 
-## 🧭 Sommario (Quick Navigation)
-
-- [**Architettura Core**](#-architettura-core-stack-tecnologico)
-- [**Struttura Repository**](#-struttura-del-repository-source-map)
-- [**Installation & Setup**](#-installation-e-setup-developer-experience)
-- [**Logiche di Gioco**](#-logiche-di-gioco-game-mechanics)
-- [**Documentazione Tecnica**](#-documentazione-tecnica)
-- [**Contribuire (Guidelines)**](#-contribuire-contribution-guidelines)
-- [**Team**](#-team-di-sviluppo-core-contributors)
-
----
 
 ## 🔧 Architettura ad Alte Prestazioni
 
